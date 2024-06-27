@@ -2,57 +2,66 @@ package day1;
 
 import java.util.Scanner;
 
-	public class SimpleCalculator {
+public class SimpleCalculator {
 
-	    public static void main(String[] args) {
-	        Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) {
+        // Initialize Scanner object to read input from the console
+        Scanner scanner = new Scanner(System.in);
 
-	        System.out.println("Welcome to the Simple Calculator!");
-	        System.out.println("Please choose an operation: +, -, *, /");
+        // Display welcome message and prompt user to choose an operation
+        System.out.println("Welcome to the Simple Calculator!");
+        System.out.println("Please choose an operation: +, -, *, /");
 
-	        String operation = scanner.next();
+        // Read the operation choice from the user input
+        String operation = scanner.next();
 
-	        
-	        System.out.println("Enter the first number:");
-	        double num1 = scanner.nextDouble();
+        // Prompt user to enter the first number
+        System.out.println("Enter the first number:");
+        double num1 = scanner.nextDouble();
 
-	        System.out.println("Enter the second number:");
-	        double num2 = scanner.nextDouble();
+        // Prompt user to enter the second number
+        System.out.println("Enter the second number:");
+        double num2 = scanner.nextDouble();
 
-	        double result = 0;
-	        boolean validOperation = true;
+        // Initialize result variable
+        double result = 0;
 
-	        
-	        switch (operation) {
-	            case "+":
-	                result = num1 + num2;
-	                break;
-	            case "-":
-	                result = num1 - num2;
-	                break;
-	            case "*":
-	                result = num1 * num2;
-	                break;
-	            case "/":
-	                if (num2 != 0) {
-	                    result = num1 / num2;
-	                } else {
-	                    System.out.println("Error: Division by zero is not allowed.");
-	                    validOperation = false;
-	                }
-	                break;
-	            default:
-	                System.out.println("Error: Invalid operation.");
-	                validOperation = false;
-	        }
+        // Variable to track if the operation is valid
+        boolean validOperation = true;
 
-	      
-	        if (validOperation) {
-	            System.out.println("The result of " + num1 + " " + operation + " " + num2 + " is: " + result);
-	        }
+        // Perform the selected operation based on user input
+        switch (operation) {
+            case "+":
+                result = num1 + num2;
+                break;
+            case "-":
+                result = num1 - num2;
+                break;
+            case "*":
+                result = num1 * num2;
+                break;
+            case "/":
+                // Check if num2 is zero to prevent division by zero error
+                if (num2 != 0) {
+                    result = num1 / num2;
+                } else {
+                    // Display error message if division by zero is attempted
+                    System.out.println("Error: Division by zero is not allowed.");
+                    validOperation = false;
+                }
+                break;
+            default:
+                // Display error message if an invalid operation is entered
+                System.out.println("Error: Invalid operation.");
+                validOperation = false;
+        }
 
-	        scanner.close();
-	    }
-	}
+        // Display the result of the operation if it was valid
+        if (validOperation) {
+            System.out.println("The result of " + num1 + " " + operation + " " + num2 + " is: " + result);
+        }
 
-
+        // Close the scanner to release resources
+        scanner.close();
+    }
+}
